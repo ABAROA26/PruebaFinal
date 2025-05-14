@@ -27,6 +27,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import controllers.HomeController;
 import models.AuthModel;
 
 public class AuthView extends JFrame{
@@ -201,6 +202,9 @@ public void  login() {
 				
 				if (is_login) {
 					JOptionPane.showMessageDialog(null, "Bienvenido al sistema");
+					ventana.dispose();
+					HomeController hc = new HomeController();
+					hc.home();
 				} else {
 					JOptionPane.showMessageDialog(null, "Error en el acceso", "Hello", JOptionPane.ERROR_MESSAGE);
 
