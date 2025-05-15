@@ -53,7 +53,7 @@ public class UsersView {
 		panel.add(lblNewLabel);
 		
 		
-		String[] columnas = {"ID", "Nombre", "Email", "Rol", "Teléfono","Create_At"};
+		String[] columnas = {"ID", "Nombre", "Email", "Rol", "Teléfono","Create_At","Update_at"};
 	    DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
 	    JTable tabla = new JTable(modelo);
 
@@ -74,8 +74,7 @@ public class UsersView {
 
 	   
 	    int y = 400;
-	    for (Object obj : usuarios) {
-	        User usuario = (User) obj;
+	    
 
 	        JButton delete = new JButton("Eliminar ");
 	        delete.setBounds(50, y, 200, 30);
@@ -83,10 +82,10 @@ public class UsersView {
 	            @Override
 	            public void actionPerformed(ActionEvent e) {
 	            	
-	            	int selectedRow = tabla.getSelectedRow(); // obtiene la fila seleccionada
-
-	                if (selectedRow != -1) { // si hay una fila seleccionada
-	                    int id = (int) tabla.getValueAt(selectedRow, 0); // suponiendo que el id está en la columna 0
+	            	int seleccionFila = tabla.getSelectedRow();
+	            	
+	                if (seleccionFila != -1) { 
+	                    int id = (int) tabla.getValueAt(seleccionFila, 0); 
 
 	                UsersModel um = new UsersModel();
 	                um.remove(id);
@@ -98,8 +97,29 @@ public class UsersView {
 	        });
 	        panel.add(delete);
 	        
-	    }
-		
+	    
+		    
+
+	        JButton añadir = new JButton("Añadir ");
+	        añadir.setBounds(650, 400, 200, 30);
+	        añadir.addActionListener(new ActionListener() {
+	            @Override
+	            public void actionPerformed(ActionEvent e) {
+	            	
+	            	String nombre = "reni";
+	            	String email = "reni@gmail.com";
+	            	String role = "Clieent";
+	            	int phone = 612456799;
+	           
+	                UsersModel um = new UsersModel();
+	                um.insert(y, nombre, email, role, phone);
+	                ventana.dispose();
+	                UsersController us = new UsersController();
+	                us.index();
+	            }
+	            
+	        });
+	        panel.add(añadir);
 		 
 		
 		ventana.add(panel);

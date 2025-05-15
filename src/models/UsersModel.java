@@ -90,5 +90,37 @@ public class UsersModel {
 		return false;
 		
 	}
+	
+	public boolean insert(int id,String name, String email,String role,int phone) {
+		
+		String query = "INSERT INTO users (name,email,role,phone,create_at) " +
+		"VALUES (' " + name + "', '"+ email + "','"+ role + "','" + phone +"', NOW())";
+		Connection conn = null;
+		Statement stmt = null;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/Model", "root", "root");
+			stmt = conn.prepareStatement(query);
+			
+			stmt.executeUpdate(query);
+			
+			return true; 
+				
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+				conn.close();
+			} catch (Exception e) {}
+		}
+		
+		
+		return false;
+		
+	}
+	
+	
 
 }
