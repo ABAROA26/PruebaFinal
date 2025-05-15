@@ -64,7 +64,7 @@ public class UsersModel {
 	
 	public boolean remove(int id) {
 		
-		String query = "DELETE FROM users WHERE `users`.`id` = 4";
+		String query = "DELETE FROM users WHERE `users`.`id` =  "+ id;
 		Connection conn = null;
 		Statement stmt = null;
 		try {

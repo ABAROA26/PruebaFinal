@@ -82,12 +82,19 @@ public class UsersView {
 	        delete.addActionListener(new ActionListener() {
 	            @Override
 	            public void actionPerformed(ActionEvent e) {
+	            	
+	            	int selectedRow = tabla.getSelectedRow(); // obtiene la fila seleccionada
+
+	                if (selectedRow != -1) { // si hay una fila seleccionada
+	                    int id = (int) tabla.getValueAt(selectedRow, 0); // suponiendo que el id está en la columna 0
+
 	                UsersModel um = new UsersModel();
-	                um.remove(usuario.id);
+	                um.remove(id);
 	                ventana.dispose();
 	                UsersController us = new UsersController();
 	                us.index();
-	            }
+	            }}
+	            
 	        });
 	        panel.add(delete);
 	        
