@@ -130,7 +130,7 @@ public class UsersView {
 	    for (Object obj : usuarios) {
 	        User usuario = (User) obj;
 
-	        JButton delete = new JButton("Eliminar " + usuario.name);
+	        JButton delete = new JButton("Eliminar ");
 	        delete.setBounds(50, y, 200, 30);
 	        delete.addActionListener(new ActionListener() {
 	            @Override
@@ -143,7 +143,7 @@ public class UsersView {
 	            }
 	        });
 	        panel.add(delete);
-	        y += 40;
+	        
 	    }
 		
 		 
