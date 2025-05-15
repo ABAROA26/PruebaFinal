@@ -52,55 +52,6 @@ public class UsersView {
 		lblNewLabel.setHorizontalAlignment(JLabel.CENTER);
 		panel.add(lblNewLabel);
 		
-		/*int columnas = 0;
-		
-		DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
-		
-		JTable tabla = new JTable(modelo);
-		
-		JScrollPane scrollpane = new JScrollPane(tabla);
-		panel.add(scrollpane,BorderLayout.CENTER);
-		panel.add(tabla);
-		
-		
-		int x = 100;
-		
-		for (Iterator iterator = usuarios.iterator(); iterator.hasNext();) {
-			User usuario = (User) iterator.next();
-			Object[] fila = {usuario.id,usuario.name,usuario.email,usuario.role,usuario.phone};
-			modelo.addRow(fila);
-			
-			JLabel user = new JLabel(usuario.name);
-			user.setForeground(new Color(0, 0, 0)); 
-			user.setBounds(50, x, 210, 26);
-			user.setHorizontalAlignment(JLabel.CENTER);
-			panel.add(user);
-			//diego
-			
-			
-			
-			JButton delete = new JButton("Eliminar");
-			delete.setBounds(250,x, 200,40);
-			delete.addActionListener(new ActionListener() {
-
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					// TODO Auto-generated method stub
-					UsersModel um = new UsersModel();
-					um.remove(usuario.id);
-					
-					ventana.dispose();
-					
-					UsersController us = new UsersController();
-					us.index();
-				}
-				
-			});
-			panel.add(delete);
-			
-			x+= 35;
-			
-		}*/
 		
 		String[] columnas = {"ID", "Nombre", "Email", "Rol", "Teléfono","Create_At"};
 	    DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
@@ -119,13 +70,9 @@ public class UsersView {
 	    }
 
 	    JScrollPane scrollpane = new JScrollPane(tabla);
-	    scrollpane.setBounds(50, 80, 800, 300); // Posición de la tabla en el panel
-	    panel.add(scrollpane);
+	    scrollpane.setBounds(50, 80, 800, 300); 	    panel.add(scrollpane);
 
-	    // ---------------------
-	    // BOTONES ELIMINAR INDIVIDUALES (OPCIONAL)
-	    // ---------------------
-
+	   
 	    int y = 400;
 	    for (Object obj : usuarios) {
 	        User usuario = (User) obj;
