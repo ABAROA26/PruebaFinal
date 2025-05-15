@@ -15,7 +15,7 @@ public class ConnectionModel {
 		Statement stmt = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/Model", "root", "root");
+			conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/Model", "root", "");
 			stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
 			while (rs.next()) {

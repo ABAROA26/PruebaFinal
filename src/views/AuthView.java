@@ -205,6 +205,7 @@ public void  login() {
 					ventana.dispose();
 					HomeController hc = new HomeController();
 					hc.home();
+					
 				} else {
 					JOptionPane.showMessageDialog(null, "Error en el acceso", "Hello", JOptionPane.ERROR_MESSAGE);
 
