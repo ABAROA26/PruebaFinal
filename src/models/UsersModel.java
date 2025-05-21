@@ -121,6 +121,32 @@ public class UsersModel {
 		
 	}
 	
+	public boolean update(int id, String name, String email, String role, String phone) {
+	    String query = "UPDATE users SET name = '" + name + "', email = '" + email + 
+	                   "', role = '" + role + "', phone = '" + phone + 
+	                   "', update_at = NOW() WHERE id = " + id;
+	    
+	    Connection conn = null;
+	    Statement stmt = null;
+	    try {
+	        Class.forName("com.mysql.cj.jdbc.Driver");
+	        conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/Model", "root", "root");
+	        stmt = conn.createStatement();
+	        
+	        int rowsAffected = stmt.executeUpdate(query);
+	        return rowsAffected > 0;
+	            
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return false;
+	    } finally {
+	        try {
+	            if (stmt != null) stmt.close();
+	            if (conn != null) conn.close();
+	        } catch (Exception e) {}
+	    }
+	}
+	
 	
 
 }
